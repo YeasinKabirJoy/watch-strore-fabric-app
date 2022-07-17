@@ -1,0 +1,55 @@
+#/////////////////////////////////////// Seller ////////////////////////////////////////////
+GET http://localhost:3000/watches HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:3000/watches/watch6 HTTP/1.1
+
+###
+
+POST http://localhost:3000/addWatch HTTP/1.1
+content-type: application/json
+
+{
+            "id": "watch6",
+            "manufacturer": "FastTrack",
+            "model":"FastTrack1",
+            "belt_color": "Black",
+            "price": 3700
+}
+
+###
+
+
+PUT http://localhost:3000/updatePrice/watch1/ HTTP/1.1
+content-type: application/json
+
+{
+            "new_price": 11000
+}
+
+###
+
+
+DELETE http://localhost:3000/deleteWatch/watch6 HTTP/1.1
+content-type: application/json
+### 
+
+#/////////////////////////////////////// Seller ////////////////////////////////////////////
+
+GET http://localhost:3001/watches HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:3001/watches/watch6 HTTP/1.1
+
+###
+
+PUT http://localhost:3001/buyWatch/watch1 HTTP/1.1
+content-type: application/json
+
+{
+            "new_owner": "XYZ"
+}
