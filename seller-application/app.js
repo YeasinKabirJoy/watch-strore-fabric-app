@@ -178,6 +178,15 @@ async function main() {
 					res.status(500).send(error.toString());
 				}
 			})
+			
+			app.get('/history/:key', async function (req, res) {
+				try {
+					let result = await contract.evaluateTransaction('History',req.params.key);
+					res.send(result);
+				} catch (error) {
+					res.status(500).send(error.toString());
+				}
+			})
 
 
 			app.listen(PORT, function(err){
