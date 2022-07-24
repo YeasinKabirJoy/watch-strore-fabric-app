@@ -123,6 +123,26 @@ class WatchShop extends Contract {
         await ctx.stub.putState(id, Buffer.from(stringify(sortKeysRecursive(watch))));
         return JSON.stringify(watch);
     }
+    
+    async History(ctx, key) {
+        const promiseOfIterator = ctx.stub.getHistoryForKey(key);
+
+        const results = [];
+        for await (const keyMod of promiseOfIterator) {
+            const resp = {
+                timestamp: keyMod.timestamp,
+                txid: keyMod.txId
+            }
+            if (keyMod.isDelete) {
+                resp.data = 'KEY DELETED';
+            } else {
+                resp.data = keyMod.value.toString('utf8');
+            }
+            results.push(resp);
+        }
+        return results;
+    }
+    
 
     // GetAllAssets returns all assets found in the world state.
     async GetAllWatch(ctx) {
