@@ -8,6 +8,10 @@ GET http://localhost:3000/watches/watch6 HTTP/1.1
 
 ###
 
+GET http://localhost:3000/history/watch1 HTTP/1.1
+
+###
+
 POST http://localhost:3000/addWatch HTTP/1.1
 content-type: application/json
 
@@ -36,7 +40,7 @@ DELETE http://localhost:3000/deleteWatch/watch6 HTTP/1.1
 content-type: application/json
 ### 
 
-#/////////////////////////////////////// Seller ////////////////////////////////////////////
+#/////////////////////////////////////// Buyer ////////////////////////////////////////////
 
 GET http://localhost:3001/watches HTTP/1.1
 content-type: application/json
@@ -53,3 +57,5 @@ content-type: application/json
 {
             "new_owner": "XYZ"
 }
+
+###
